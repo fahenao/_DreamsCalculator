@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dream.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @dream.email %>
+</p>
+
+<p>
+  <strong>Dream:</strong>
+  <%= @dream.dream %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @dream.amount %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @dream.term %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @dream.comments %>
+</p>
+
+<%= link_to 'Edit', edit_dream_path(@dream) %> |
+<%= link_to 'Back', dreams_path %>
