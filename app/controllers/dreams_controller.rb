@@ -34,6 +34,7 @@ class DreamsController < ApplicationController
         format.html { render :new }
         format.json { render json: @dream.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -56,8 +57,9 @@ class DreamsController < ApplicationController
   def destroy
     @dream.destroy
     respond_to do |format|
-      format.html { redirect_to dreams_url, notice: 'Dream was successfully destroyed.' }
+      format.html { redirect_to dreams_url }
       format.json { head :no_content }
+      format.js
     end
   end
 

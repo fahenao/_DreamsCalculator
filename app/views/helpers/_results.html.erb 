@@ -1,0 +1,2 @@
+<p><%= @dream.monthly_payment%></p>
+<p><%= @dream.total_savings%></p>
