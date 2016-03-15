@@ -28,7 +28,8 @@
   </div>
   <div class="field">
     <%= f.label :term %><br>
-    <%= f.select(:term, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']]), :class =>"btn btn-primary dropdown-toggle") %>
+    <%= f.select :term, 
+        options_for_select([['1','1'],['2','2'],['3','3'],['4','4']]) %>
   </div>
   <div class="field">
     <%= f.label :comments %><br>

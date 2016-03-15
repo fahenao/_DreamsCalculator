@@ -6,31 +6,38 @@ class Dream < ActiveRecord::Base
 
 	def self.monthly_payment(dream)
 		@dream = dream
-		if @dream.term = 1
-			@dream.term = 12
-		elsif @dream.term = 2
-			@dream.term = 24
-		elsif @dream.term = 3
-			@dream.term = 36
-		else @dream.term = 48
-		end
 		a = @dream.amount
 		b = @dream.term
-			return a / b
+		case @dream.term
+			when 1
+			  total = a / 12
+			when 2
+			  total = a / 24
+			when 3
+			  total = a / 36
+			else
+				total = a / 48
+		end
+		return total.to_f
 	end
 
 	def self.total_savings(dream)
 		@dream = dream
 		@amount = @dream.amount
+		@term = @dream.term
 		@total = 0
-			if @dream.term = 1
-				@total = @amount * 0.028
-			elsif @dream.term = 2
-				@total = @amount * 0.0325
-			elsif @dream.term = 3
-				@total = @amount * 0.0370
-			else @total = @amunt * 0.040
+		
+		case @term
+			when 1
+			  @total = @amount * 0.028
+			when 2
+			  @total = @amount * 0.0325
+			when 3
+			  @total = @amount * 0.0370
+			else
+				@total = @amount * 0.040
 		end
+
 		return @total + @amount
 	end
 
