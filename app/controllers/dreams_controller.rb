@@ -27,7 +27,6 @@ class DreamsController < ApplicationController
     @dream = Dream.new(dream_params)
     @dream.monthly_payment = Dream.monthly_payment(@dream)
     @dream.total_savings = Dream.total_savings(@dream)
-    binding.pry
     respond_to do |format|
       if @dream.save
         format.html { redirect_to @dream, notice: 'Dream was successfully created.' }
