@@ -5,7 +5,6 @@ class DreamsController < ApplicationController
   # GET /dreams.json
   def index
     @dreams = Dream.all
-    @dream = Dream.new
   end
 
   # GET /dreams/1
@@ -36,7 +35,6 @@ class DreamsController < ApplicationController
         format.html { render :new }
         format.json { render json: @dream.errors, status: :unprocessable_entity }
       end
-      # format.js
     end
   end
 
@@ -51,7 +49,6 @@ class DreamsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @dream.errors, status: :unprocessable_entity }
       end
-      format.js
     end
   end
 

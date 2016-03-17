@@ -15,12 +15,3 @@
 //=require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
-
-$('#dream-'+<%= @dream.id %>).fadeOut();
-
-<% if @dream.new_record? %>
-	$('input#dream_name').efect('highlight', {color: 'red'});
-<% else %>
-	$('div#dreams').append("<%= escape_javascript(render @dream) %>");
-	$('div#<%= dom_id(@dream) %>').effect('highlight');
-<% end %>
