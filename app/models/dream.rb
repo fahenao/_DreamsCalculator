@@ -19,7 +19,7 @@ class Dream < ActiveRecord::Base
 			else
 				total = a / (BigDecimal.new(48))
 		end
-		result = BigDecimal.new(total)
+		result = total
 		return result
 	end
 
