@@ -1,5 +1,5 @@
 
-  <%= form_for(@dream) do |f| %>
+  <%= form_for(@dream, remote: true) do |f| %>
     <% if @dream.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@dream.errors.count, "error") %> prohibited this dream from being saved:</h2>
@@ -23,7 +23,7 @@
     <div class="form-group">
       <%= f.label :Elige_tu_sueño %><br>
       <%= f.select :dream, 
-          options_for_select([['Auto','Car'],['Casa','House'],['Educación','Education'],['Viaje','Travel'], ['Otro','Other']]), :class => 'dropdown-toggle form-control dream-dropdown' %>
+          options_for_select([['Auto','Auto'],['Vivienda','Vivienda'],['Educación','Educación'],['Viaje','Viaje'], ['Otro','Otro']]), :class => 'dropdown-toggle form-control dream-dropdown' %>
     </div>
     <div class="form-group">
       <%= f.label :Valor %> <p class="años_dream_form">*</p>
