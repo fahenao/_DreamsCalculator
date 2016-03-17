@@ -11,28 +11,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :Nombre_completo %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :Correo_electrónico %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :dream %><br>
-    <%= f.text_field :dream %>
+    <%= f.label :Elige_tu_sueño %><br>
+    <%= f.select :dream, 
+        options_for_select([['Auto','Car'],['Casa','House'],['Educación','Education'],['Viaje','Travel'], ['Otro','Other']]) %>
   </div>
   <div class="field">
-    <%= f.label :amount %><br>
+    <%= f.label :Valor %><br>
     <%= f.text_field :amount %>
   </div>
   <div class="field">
-    <%= f.label :term %><br>
+    <%= f.label :En_cuanto_tiempo_quieres_que_se_haga_realidad? %><br>
     <%= f.select :term, 
-        options_for_select([['1','1'],['2','2'],['3','3'],['4','4']]) %>
+                  options_for_select([['1','1'],['2','2'],['3','3'],['4','4']]
+                  ) %> <p class="años_dream_form">Años.</p>
   </div>
   <div class="field">
-    <%= f.label :comments %><br>
+    <%= f.label :Dejanos_tus_comentarios_o_dudas %><br>
     <%= f.text_area :comments %>
   </div>
   <div class="actions">

@@ -6,30 +6,30 @@ class Dream < ActiveRecord::Base
 
 	def self.monthly_payment(dream)
 		@dream = dream
-		a = @dream.amount
+		a = BigDecimal.new(@dream.amount).truncate(2)
 		b = @dream.term
-		case @dream.term
+		case b
 			when 1
-			  total = a / 12
+			  total = a / (BigDecimal.new(12))
 			when 2
-			  total = a / 24
+			  total = a / (BigDecimal.new(24))
 			when 3
-			  total = a / 36
+			  total = a / (BigDecimal.new(36))
 			else
-				total = a / 48
+				total = a / (BigDecimal.new(48))
 		end
-		return total.to_f
+		result = BigDecimal.new(total)
+		return result
 	end
 
 	def self.total_savings(dream)
 		@dream = dream
 		@amount = @dream.amount
 		@term = @dream.term
-		@total = 0
-		
+		@total = 0	
 		case @term
 			when 1
-			  @total = @amount * 0.028
+			  @total = BigDecimal.new(@amount) * 0.028
 			when 2
 			  @total = @amount * 0.0325
 			when 3
@@ -37,8 +37,8 @@ class Dream < ActiveRecord::Base
 			else
 				@total = @amount * 0.040
 		end
-
-		return @total + @amount
+		result = @total + @amount 
+		return result
 	end
 
 end

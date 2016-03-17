@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305225717) do
+ActiveRecord::Schema.define(version: 20160317001208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +19,13 @@ ActiveRecord::Schema.define(version: 20160305225717) do
     t.string   "name"
     t.string   "email"
     t.string   "dream"
-    t.decimal  "amount",          precision: 8, scale: 2
+    t.decimal  "amount",          precision: 10, scale: 2
     t.integer  "term"
     t.text     "comments"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.integer  "monthly_payment"
-    t.integer  "total_savings"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.decimal  "monthly_payment", precision: 10, scale: 2
+    t.decimal  "total_savings",   precision: 10, scale: 2
   end
 
 end
