@@ -1,53 +1,55 @@
 <p id="notice"><%= notice %></p>
-
-<div class="col-md-3 col-xs-12 panel panel-default index-new">
-  <%= form_for(@dream, remote: true) do |f| %>
-    <% if @dream.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@dream.errors.count, "error") %> prohibited this dream from being saved:</h2>
-        <ul>
-        <% @dream.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
+<div class="row">
+  <div class="col-md-3 col-xs-12 panel panel-default index-new">
+    <%= form_for(@dream, remote: true) do |f| %>
+      <% if @dream.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@dream.errors.count, "error") %> prohibited this dream from being saved:</h2>
+          <ul>
+          <% @dream.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <form class="form-inline">
+        <div class="form-group">
+          <%= f.label :Nombre_completo %><br>
+          <%= f.text_field :name, :class => 'form-control', :placeholder => 'José Pérez' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Correo_electrónico %> <p class="años_dream_form">*</p>
+          <%= f.text_field :email, :class => 'form-control', :placeholder => 'jose.perez@misueño.com' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Elige_tu_sueño %><br>
+          <%= f.select :dream, 
+              options_for_select([['Auto','Car'],['Casa','House'],['Educación','Education'],['Viaje','Travel'], ['Otro','Other']]), :class => 'dropdown-toggle form-control dream-dropdown' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Valor %> <p class="años_dream_form">*</p>
+          <%= f.text_field :amount, :class => 'form-control', :placeholder => '$1 - El límite lo pones tu' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :En_cuanto_tiempo_quieres_que_se_haga_realidad? %><br>
+          <%= f.select :term, 
+                        options_for_select([['1','1'],['2','2'],['3','3'],['4','4']]
+                        ), :class => 'form-control' %> 
+        </div>
+        <div class="form-group">
+          <%= f.label :Comentarios %><br>
+          <%= f.text_area :comments, :class => 'form-control', :placeholder => 'Cuentanos un poco más acerca de tu sueño ...' %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Calcular sueño', :class => "btn btn-default" %>
+        </div>
+      </form>
     <% end %>
-    <form class="form-inline">
-      <div class="form-group">
-        <%= f.label :Nombre_completo %><br>
-        <%= f.text_field :name, :class => 'form-control', :placeholder => 'José Pérez' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :Correo_electrónico %> <p class="años_dream_form">*</p>
-        <%= f.text_field :email, :class => 'form-control', :placeholder => 'jose.perez@misueño.com' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :Elige_tu_sueño %><br>
-        <%= f.select :dream, 
-            options_for_select([['Auto','Car'],['Casa','House'],['Educación','Education'],['Viaje','Travel'], ['Otro','Other']]), :class => 'dropdown-toggle form-control dream-dropdown' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :Valor %> <p class="años_dream_form">*</p>
-        <%= f.text_field :amount, :class => 'form-control', :placeholder => '$1 - El límite lo pones tu' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :En_cuanto_tiempo_quieres_que_se_haga_realidad? %><br>
-        <%= f.select :term, 
-                      options_for_select([['1','1'],['2','2'],['3','3'],['4','4']]
-                      ), :class => 'form-control' %> 
-      </div>
-      <div class="form-group">
-        <%= f.label :Comentarios %><br>
-        <%= f.text_area :comments, :class => 'form-control', :placeholder => 'Cuentanos un poco más acerca de tu sueño ...' %>
-      </div>
-      <div class="actions">
-        <%= f.submit 'Calcular sueño', :class => "btn btn-default" %>
-      </div>
-    </form>
-  <% end %>
-  <%= link_to 'New Dream', new_dream_path %>
+    <%= link_to 'New Dream', new_dream_path %>
+  </div>
 </div>
-<div class="col-md-9 col-xs-12" id="dreams">
-  <h1>Sueños Creados</h1>
-  <%= render @dreams %>
+<div class="row">  <div class="col-md-9 col-xs-12" id="dreams">
+    <h1>Sueños Creados</h1>
+    <%= render @dreams %>
+  </div>
 </div>
