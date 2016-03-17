@@ -5,6 +5,7 @@ class DreamsController < ApplicationController
   # GET /dreams.json
   def index
     @dreams = Dream.all
+    @dream = Dream.new
   end
 
   # GET /dreams/1

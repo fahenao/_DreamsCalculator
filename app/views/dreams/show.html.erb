@@ -1,48 +1,54 @@
 <div class="row">
-  <div class="col-md-6">    
+  <div class="col-md-8 jumbotron">
+    <div class="panel-body">
+      <p>  
+        Su <strong>pago mensual</strong> seria de $
+        <%= @dream.monthly_payment %> Dólares.
+      </p>
+      <p>
+        Al termino del plazo tendra <strong>ahorrado</strong>:
+        $ <%= @dream.total_savings %>0 Dólares.
+      </p>
+    </div>
+  </div>
+  <div class="col-md-4 col-xs-12 panel panel-default">    
+    <div class="panel-heading">
+      <div class="panel-title show_bottons">
+        <%= link_to 'Editar', edit_dream_path(@dream) %> |
+        <%= link_to 'Atras', dreams_path %>
+      </div>
+    </div>
     <p id="notice"><%= notice %></p>
+    
+    <table class="table">
+      <tr>
+        <th><strong>Nombre:</strong></th>
+        <td><%= @dream.name %></td>
+      </tr>
+      <tr>
+        <th><strong><strong>Correo Electrónico:</strong></strong></th>
+        <td> <%= @dream.email %></td>
+      </tr>
+      <tr>
+        <th><strong>Sueño:</strong></th>
+        <td><%= @dream.dream %></td>
+      </tr>
+      <tr>
+        <th><strong>Précio:</strong> $</th>
+        <td><%= @dream.amount %>0 Dólares</td>
+      </tr>
+      <tr>
+        <th><strong>Año(s):</strong></th>
+        <td><%= @dream.term %></td>
+      </tr>
+      <tr>
+        <th><strong>Comentarios:</strong></th>
+        <td><%= @dream.comments %></td>
+      </tr>
+    </table>
+ 
 
+ 
     <p>
-      <strong>Name:</strong>
-      <%= @dream.name %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @dream.email %>
-    </p>
-
-    <p>
-      <strong>Dream:</strong>
-      <%= @dream.dream %>
-    </p>
-
-    <p>
-      <strong>Amount:</strong>
-      <%= @dream.amount %>
-    </p>
-
-    <p>
-      <strong>Term:</strong>
-      <%= @dream.term %>
-    </p>
-
-    <p>
-      <strong>Comments:</strong>
-      <%= @dream.comments %>
-    </p>
-
-    <%= link_to 'Edit', edit_dream_path(@dream) %> |
-    <%= link_to 'Back', dreams_path %>
-  </div>
-  <div class="col-md-6">
-    <p>  
-      Su <strong>pago mensual</strong> seria de: $
-      <%= @dream.monthly_payment %>
-    </p>
-    <p>
-      Al termino del plazo tendra <strong>ahorrado</strong>:
-      $ <%= @dream.total_savings %>
-    </p>
-  </div>
-</div>
+      
+      

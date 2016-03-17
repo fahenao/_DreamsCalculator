@@ -5,3 +5,25 @@
 .años_dream_form {
 	display:inline-block
 }
+.dream-dropdown{
+	font-size: 16px;
+}
+.show_bottons {
+	a {
+		padding: 5px 10px 5px 10px;
+	}
+	text-align: center;
+	a:link {
+		margin: 3px 12px 3px 12px;
+	}
+	a:hover {
+		text-decoration: none;
+		background-color: lightgreen;
+		border: 2px;
+		border-radius: 15px;
+	}
+}
+.index-new {
+	padding: 15px 0 15px 0;
+	margin-top: 118px;
+}
